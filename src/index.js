@@ -2,7 +2,7 @@ function sleep(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
 }
 const TOTAL_SEGMENTS = 16;
-const COLORS = ['blue','red','green'];
+const COLORS = ['blue','red','lime','fuchsia','violet','orange'];
 flag=true;
 
 document.addEventListener("keypress",async function(){
