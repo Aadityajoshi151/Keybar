@@ -1,7 +1,7 @@
 function sleep(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
 }
-const TOTAL_SEGMENTS = 15;
+const TOTAL_SEGMENTS = 16;
 const COLORS = ['blue','red','green'];
 flag=true;
 
