@@ -6,6 +6,7 @@ h1 {
 }
 .segment {
   background-color: white;
+  box-shadow: 0 0 5px white;
   height: 50px;
   width: 150px;
   margin: 10px;
