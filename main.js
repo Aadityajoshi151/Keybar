@@ -1,8 +1,22 @@
-const { app, BrowserWindow } = require('electron')
-
+const { app, BrowserWindow, Menu, MenuItem, ipcMain} = require('electron')
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
+const mode_menu_template = [
+  {
+    label: 'Random Height and Color',
+    click: () => { event.sender.send('mode-menu-command', 'randomHC') }
+  },
+  {
+    label: 'Rise Up Effect',
+    click: () => { event.sender.send('mode-menu-command', 'riseUp') }
+  },
+  // {
+  //   label: 'Mode 3',
+  //   click: () => { event.sender.send('mode-menu-command', 'mode_3') }
+  // },
+]
 let win
+
 
 function createWindow () {
   // Create the browser window.
@@ -10,7 +24,7 @@ function createWindow () {
     width: 200,
     height: 970,
     alwaysOnTop: true,
-    resizable: false,
+    //resizable: false,
     maximizable: false,
     webPreferences: {
       nodeIntegration: true,
@@ -24,7 +38,7 @@ function createWindow () {
   win.setMenu(null)
 
   // Open the DevTools.
-  //win.webContents.openDevTools()
+  win.webContents.openDevTools()
 
   // Emitted when the window is closed.
   win.on('closed', () => {
@@ -55,6 +69,11 @@ app.on('activate', () => {
   if (win === null) {
     createWindow()
   }
+})
+
+ipcMain.on('show-mode-menu', (event) => {
+  const menu = Menu.buildFromcontext_menu_template(mode_menu_template)
+  menu.popup(BrowserWindow.fromWebContents(event.sender))
 })
 
 // In this file you can include the rest of your app's specific main process
