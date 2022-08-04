@@ -1,20 +1,7 @@
 const { app, BrowserWindow, Menu, MenuItem, ipcMain} = require('electron')
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
-const mode_menu_template = [
-  {
-    label: 'Random Height and Color',
-    click: () => { event.sender.send('mode-menu-command', 'randomHC') }
-  },
-  {
-    label: 'Rise Up Effect',
-    click: () => { event.sender.send('mode-menu-command', 'riseUp') }
-  },
-  // {
-  //   label: 'Mode 3',
-  //   click: () => { event.sender.send('mode-menu-command', 'mode_3') }
-  // },
-]
+
 let win
 
 
@@ -72,7 +59,21 @@ app.on('activate', () => {
 })
 
 ipcMain.on('show-mode-menu', (event) => {
-  const menu = Menu.buildFromcontext_menu_template(mode_menu_template)
+  const mode_menu_template = [
+    {
+      label: 'Random Height and Color (Default)',
+      click: () => { event.sender.send('mode-menu-command', 'randomHC') }
+    },
+    {
+      label: 'Rise Up Effect',
+      click: () => { event.sender.send('mode-menu-command', 'riseUp') }
+    },
+    // {
+    //   label: 'Mode 3',
+    //   click: () => { event.sender.send('mode-menu-command', 'mode_3') }
+    // },
+  ]
+  const menu = Menu.buildFromTemplate(mode_menu_template)
   menu.popup(BrowserWindow.fromWebContents(event.sender))
 })
 
