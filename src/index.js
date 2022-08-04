@@ -23,10 +23,10 @@ document.addEventListener("keyup",async function(){
         case "randomHC":
             if (flag){
                 flag=false;
-                //var color = COLORS[Math.floor(Math.random()  * COLORS.length)];
+                var color = COLORS[Math.floor(Math.random() * COLORS.length)];
                 HEIGHT = Math.floor((Math.random() * TOTAL_SEGMENTS)+1);
                 for(let i=TOTAL_SEGMENTS ; i>=HEIGHT ; i--){
-                    document.getElementById(i).style.backgroundColor = COLORS[i-1];
+                    document.getElementById(i).style.backgroundColor = color;
                     await sleep(10);
                 }   
                 for(let j=HEIGHT ; j<=TOTAL_SEGMENTS ; j++){
