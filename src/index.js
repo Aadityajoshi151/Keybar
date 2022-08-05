@@ -39,6 +39,7 @@ document.addEventListener("keyup",async function(){
             }
         break
         case "riseUp":
+            const LIT_SEGMENT = 4;
             for(let i=TOTAL_SEGMENTS; i>=1; i--){
                 console.log(i)
                 document.getElementById(i).style.backgroundColor = four_shades[0]
@@ -61,7 +62,7 @@ document.addEventListener("keyup",async function(){
                 }
                 await sleep(12);
             }
-            for(let j=4; j>=1; j--){
+            for(let j=LIT_SEGMENT; j>=1; j--){
                 document.getElementById(j).style.backgroundColor = 'white';
                 await sleep(12)
                 for(let k=(j-1); k>=1; k--){
