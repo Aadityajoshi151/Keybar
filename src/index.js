@@ -61,28 +61,14 @@ document.addEventListener("keyup",async function(){
                 }
                 await sleep(12);
             }
-            //iteration 1
-            document.getElementById(4).style.backgroundColor = 'white';
-            await sleep(12);
-            document.getElementById(3).style.backgroundColor = four_shades[3];
-            await sleep(12);
-            document.getElementById(2).style.backgroundColor = four_shades[2];
-            await sleep(12);
-            document.getElementById(1).style.backgroundColor = four_shades[1];
-            //iteration 2
-            document.getElementById(3).style.backgroundColor = 'white';
-            await sleep(12);
-            document.getElementById(2).style.backgroundColor = four_shades[3];
-            await sleep(12);
-            document.getElementById(1).style.backgroundColor = four_shades[2];
-            //iteration 3
-            document.getElementById(2).style.backgroundColor = 'white';
-            await sleep(12);
-            document.getElementById(1).style.backgroundColor = four_shades[3];
-            await sleep(12);
-            //iteration 4
-            document.getElementById(1).style.backgroundColor = 'white';
-            await sleep(12);
+            for(let j=4; j>=1; j--){
+                document.getElementById(j).style.backgroundColor = 'white';
+                await sleep(12)
+                for(let k=(j-1); k>=1; k--){
+                    document.getElementById(k).style.backgroundColor = four_shades[k];
+                    await sleep(12);
+                }   
+            }
         break
     }
        
