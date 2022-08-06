@@ -71,6 +71,9 @@ document.addEventListener("keyup",async function(){
                 }   
             }
         break
+        case "addUp":
+            console.log("addUp")
+        break
     }
        
 })

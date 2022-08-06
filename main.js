@@ -68,10 +68,10 @@ ipcMain.on('show-mode-menu', (event) => {
       label: 'Rise Up Effect',
       click: () => { event.sender.send('mode-menu-command', 'riseUp') }
     },
-    // {
-    //   label: 'Mode 3',
-    //   click: () => { event.sender.send('mode-menu-command', 'mode_3') }
-    // },
+    {
+      label: 'Add Up Effect',
+      click: () => { event.sender.send('mode-menu-command', 'addUp') }
+    },
   ]
   const menu = Menu.buildFromTemplate(mode_menu_template)
   menu.popup(BrowserWindow.fromWebContents(event.sender))
