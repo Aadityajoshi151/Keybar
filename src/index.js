@@ -4,13 +4,16 @@ function sleep(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
 }
 const TOTAL_SEGMENTS = 27;
-var mode3 = TOTAL_SEGMENTS;
+
 
 const COLORS = ['#f90020','#e500bd','#d101f7','#ac0fff','#7a29ff','#394eff','#076afc','#0d71fd','#0798db','#05b99e','#05df57','#0df91d','#80fd01','#b6f802','#dcf001','#fbee02'];
 
 const four_shades = ['#02f412','#1ad826','#1daf27','#1a8220']
 
-var MODE = "addUp" //default mode
+var addUpCounter = TOTAL_SEGMENTS;
+var addUpColor = COLORS[Math.floor(Math.random() * COLORS.length)];
+
+var MODE = "randomHC" //default mode
 var flag=true;
 
 //Creating the segments dynamically via js
@@ -73,14 +76,18 @@ document.addEventListener("keyup",async function(){
             }
         break
         case "addUp":
-            if(mode3<=0){
+            if(addUpCounter<=0){
                 for(let j=TOTAL_SEGMENTS; j>=1; j--){
                     document.getElementById(j).style.backgroundColor = 'white';
                 }
-                mode3 = TOTAL_SEGMENTS
-            }              
-            document.getElementById(mode3).style.backgroundColor = "lime"
-            mode3--;
+                addUpCounter = TOTAL_SEGMENTS
+                addUpColor = COLORS[Math.floor(Math.random() * COLORS.length)];
+            }
+            else{
+                document.getElementById(addUpCounter).style.backgroundColor = addUpColor
+                addUpCounter--;
+            }             
+            
         break
     }
        
