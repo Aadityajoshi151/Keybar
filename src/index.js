@@ -48,6 +48,9 @@ document.addEventListener("keyup",async function(){
                 console.log(i)
                 document.getElementById(i).style.backgroundColor = four_shades[0]
                 await sleep(12);
+                // checkPreviousSegment(i,1)
+                // checkPreviousSegment(i,2)
+                // checkPreviousSegment(i,3)
                 if((i+1) <= TOTAL_SEGMENTS){
                     document.getElementById(i+1).style.backgroundColor = four_shades[1]
                 }
@@ -101,3 +104,9 @@ window.addEventListener('contextmenu', (e) => {
     MODE = mode
     console.log(mode)
   })
+// async function checkPreviousSegment(i,j){
+//     if((i+j) <= TOTAL_SEGMENTS){
+//         document.getElementById(i+j).style.backgroundColor = four_shades[j]
+//     }
+//     await sleep(12);
+// }
