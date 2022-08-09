@@ -72,6 +72,10 @@ ipcMain.on('show-mode-menu', (event) => {
       label: 'Add Up Effect',
       click: () => { event.sender.send('mode-menu-command', 'addUp') }
     },
+    {
+      label: 'Tri Color',
+      click: () => { event.sender.send('mode-menu-command', 'triColor') }
+    },
   ]
   const menu = Menu.buildFromTemplate(mode_menu_template)
   menu.popup(BrowserWindow.fromWebContents(event.sender))

@@ -92,6 +92,8 @@ document.addEventListener("keyup",async function(){
             }             
             
         break
+        case "triColor":
+            console.log("Tricolor effect code will go here!")
     }
        
 })
